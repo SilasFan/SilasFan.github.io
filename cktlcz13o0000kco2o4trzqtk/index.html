@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="三无Coding机"><title>Ubuntu16.04下搭建wordpress简单教程（LNMP环境） | 三无Coding机</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/images/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/images/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Ubuntu16.04下搭建wordpress简单教程（LNMP环境）</h1><a id="logo" href="/.">三无Coding机</a><p class="description"></p></div><div id="nav-menu"><a href="/"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Ubuntu16.04下搭建wordpress简单教程（LNMP环境）</h1><div class="post-meta">Nov 17, 2017<span> | </span><span class="category"><a href="/categories/Technology/">Technology</a></span></div><a class="disqus-comment-count" href="/cktlcz13o0000kco2o4trzqtk/#vcomment"><span class="valine-comment-count" data-xid="/cktlcz13o0000kco2o4trzqtk/"></span><span> 条评论</span></a><div class="post-content"><p>先贴Reference:<a href="http://blog.csdn.net/STFPHP/article/details/53492723" target="_blank" rel="noopener">http://blog.csdn.net/STFPHP/article/details/53492723</a></p>
+<p>其实在Linux下搭建这些环境要比Windows简单（dalao请无视）</p>
+<p>所以让我们来愉快地搭建LNMP和WordPress吧！</p>
+<h3 id="1-首先你要有一个Ubuntu（本地安装和服务器均可）"><a href="#1-首先你要有一个Ubuntu（本地安装和服务器均可）" class="headerlink" title="1.首先你要有一个Ubuntu（本地安装和服务器均可）"></a><strong>1.首先你要有一个Ubuntu（本地安装和服务器均可）</strong></h3><p><em>这里要注意的是本地的Ubuntu和服务器的Ubuntu 区别就是本地的在下面的地址输入里是localhost而不是服务器的ip地址</em></p>
+<p>拿到新系统好开心哦，所以我们来做休闲的第一步（本地下请右击桌面-终端，服务器先连接上）</p>
+<p>输入指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+
+<p>然后分别等待更新完成就可以啦（如果让你输入密码就输入你设置的root用户密码）</p>
+<h3 id="2-安装Nginx"><a href="#2-安装Nginx" class="headerlink" title="2.安装Nginx"></a><strong>2.安装Nginx</strong></h3><p>输入指令：</p>
+<p>sudo apt-get install nginx</p>
+<p>等待安装完成，输入指令：netstat -anp可以查看80端口是否被监听</p>
+<p>输入指令：systemctl status nginx也可以查看nginx的运行情况</p>
+<p>浏览器输入服务器公网 ip访问可见到welcome to nginx的欢迎页面（本地输入localhost）</p>
+<h3 id="3-安装php7-1和php7-1-fpm"><a href="#3-安装php7-1和php7-1-fpm" class="headerlink" title="3.安装php7.1和php7.1-fpm"></a><strong>3.安装php7.1和php7.1-fpm</strong></h3><p>为什么要安装php7.1呢？因为本人有强迫症</p>
+<p>因为ubuntu 16.04本身没有php7.1的源，所以我们输入add-repository ppa:ondrej/php，来获取php7.1的源</p>
+<p>再依次输入指令：</p>
+<p>sudo apt-get update</p>
+<p>sudo apt-get install php7.1 php7.1-fpm</p>
+<p>等待系统完成安装</p>
+<h3 id="4-配置nginx"><a href="#4-配置nginx" class="headerlink" title="4.配置nginx"></a><strong>4.配置nginx</strong></h3><p>到了此教程中最复杂的环节啦，先找到目录 /etc/nginx/sites-available/ 下的default文件并打开编辑</p>
+<p>/*如果没有MobaXterm这样的可以直接图形化操作文件的软件的话，可以先</p>
+<p>sudo apt-get install vim</p>
+<p>再vim /etc/nginx/sites-available/default打开，按i键就可以开始编辑啦*/</p>
+<p>修改location ~ .php字段下，将php-7.0改为php-7.1，并添加或修改图中高亮部分（注意#的有无哦）</p>
+<p><img src="/images/wp1.jpg" alt></p>
+<p>修改保存完后退出，输入指令：</p>
+<p>systemctl restart nginx</p>
+<p>来重启nginx</p>
+<p>最好再输入systemctl status nginx来检查nginx是否运行正常，如果否，那就要回去修改错误了</p>
+<h3 id="5-安装MySQL"><a href="#5-安装MySQL" class="headerlink" title="5.安装MySQL"></a><strong>5.安装MySQL</strong></h3><p>输入命令： sudo apt-get install mysql-server mysql-client php7.1-mysql</p>
+<p>等待安装，安装过程中会提示输入mysql密码，自己设置就行啦</p>
+<h3 id="6-创建数据库"><a href="#6-创建数据库" class="headerlink" title="6.创建数据库"></a><strong>6.创建数据库</strong></h3><p>安装完后强迫症一下sudo apt-get update &amp; sudo apt-get upgrade</p>
+<p>然后打开mysql（输入mysql -p),输入刚才设置好的密码</p>
+<p>然后进入mysql，就可以为WordPress创建数据库啦</p>
+<p>输入 create database XXX;(XXX为你自定义的名字） //一定要有分号哦</p>
+<p>然后用show databases;  来查看数据库是否被创建</p>
+<p>接着直接输入exit 退出</p>
+<h3 id="7-安装wordpress"><a href="#7-安装wordpress" class="headerlink" title="7.安装wordpress"></a><strong>7.安装wordpress</strong></h3><p>这里我们使用wget命令   //个人还是推荐scp，方便简洁</p>
+<p>先使用命令  cd /var/www/html    移动到html文件夹下</p>
+<p>wget <a href="https://cn.wordpress.org/wordpress-4.9-zh_CN.tar.gz" target="_blank" rel="noopener">https://cn.wordpress.org/wordpress-4.9-zh_CN.tar.gz</a>(这是截至2017.11.17的wordpress4.9版本地址）</p>
+<p>这里的wget就是把后面URL指向的文件下载到当前目录中</p>
+<p>下载完毕后，执行</p>
+<p>tar -zxvf wordpress-4.9-zh_CN.tar.gz</p>
+<p>来把wordpress解压到html文件夹里</p>
+<p>接着打开浏览器，输入ip/wordpress 就可以看到wordpress的安装界面啦</p>
+<p>按照提示输入信息即可</p>
+<p><img src="/images/wp2.png" alt></p>
+<p>创建自己的账户，点击install</p>
+<p><img src="/images/wp3.png" alt></p>
+<p>看到安装完毕的提示，就可以登陆进去，开始自己的wordpress个人博客之旅啦！</p>
+<p><img src="/images/wp4.png" alt></p>
+<p>本教程暂时，end</p>
+</div><div class="tags"></div><div class="post-nav"><a class="pre" href="/cktlcz148000dkco2gd9xtlap/">停电三天，期末考及2018</a><a class="next" href="/cktlcz14g000nkco2sm9n1qm1/">序·关于漫想</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'H4H3950lA1Fthbi035SyDPz3-gzGzoHsz',
+  appKey:'PfHYNRTMjosLxypwFjyz2PlN',
+  placeholder:'comment...',
+  avatar:'retro',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"><input type="hidden" name="sitesearch" value="http://silasfan.github.io"></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Technology/">Technology</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/漫想/">漫想</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/GraphQL/" style="font-size: 15px;">GraphQL</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/WebAssembly/" style="font-size: 15px;">WebAssembly</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/JAVA/" style="font-size: 15px;">JAVA</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/cktlcz14s0019kco28jxdf2ny/">聊聊看VUP这件事</a></li><li class="post-list-item"><a class="post-list-link" href="/cktlcz14n0010kco2g6qv8fex/">愿你我尚有余地做梦</a></li><li class="post-list-item"><a class="post-list-link" href="/cktlcz146000akco2eo9spj3r/">Install wasm in Win10</a></li><li class="post-list-item"><a class="post-list-link" href="/cktlcz14i000qkco2234sj5ik/">心上点点秋</a></li><li class="post-list-item"><a class="post-list-link" href="/cktlcz1450009kco2b3cfhsv0/">flex的两个小坑记录</a></li><li class="post-list-item"><a class="post-list-link" href="/cktlcz1410006kco2aritcet1/">Vuex学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/cktlcz14c000hkco2pftpxxbo/">New Blog,New Life——hexo入坑指北</a></li><li class="post-list-item"><a class="post-list-link" href="/cktlcz1400005kco2x94o4cpw/">Spring boot+graphql+Mongodb构建</a></li><li class="post-list-item"><a class="post-list-link" href="/cktlcz14l000xkco2qvbbowna/">是适合跑步的日子啊</a></li><li class="post-list-item"><a class="post-list-link" href="/cktlcz14u001dkco23qy61ze2/">踏着灰色的轨迹</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://www.xzclip.cn/" title="某鸡巨佬" target="_blank">某鸡巨佬</a><ul></ul><a href="https://www.huww98.cn/" title="大佬" target="_blank">大佬</a><ul></ul><a href="http://www.guohere.com/" title="某果" target="_blank">某果</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Fetter Copyright © 2021<br> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a><br><a rel="nofollow" target="_blank" href="https://beian.miit.gov.cn/">粤ICP备 17148289号</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.2/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

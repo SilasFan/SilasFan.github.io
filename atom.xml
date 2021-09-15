@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>三无Coding机</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://silasfan.github.io/"/>
+  <updated>2020-04-07T09:48:21.071Z</updated>
+  <id>http://silasfan.github.io/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>聊聊看VUP这件事</title>
+    <link href="http://silasfan.github.io/cktlcz14s0019kco28jxdf2ny/"/>
+    <id>http://silasfan.github.io/cktlcz14s0019kco28jxdf2ny/</id>
+    <published>2020-04-06T06:54:35.000Z</published>
+    <updated>2020-04-07T09:48:21.071Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近感觉已经没有什么游戏可以玩了，于是看起了VUP（这里为什么要用VUP而不是VTB呢，因为我不看日语VTB），总觉得应该写一下这些天来的感想（其实是因为一个VUP），于是找了个时间来简单写写这篇文章&lt;/p&gt;
+&lt;p&gt;如果有看不懂的词，可以拉到最后面的附录，可能会有解释&lt;/p
+      
+    
+    </summary>
+    
+      <category term="漫想" scheme="http://silasfan.github.io/categories/%E6%BC%AB%E6%83%B3/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>愿你我尚有余地做梦</title>
+    <link href="http://silasfan.github.io/cktlcz14n0010kco2g6qv8fex/"/>
+    <id>http://silasfan.github.io/cktlcz14n0010kco2g6qv8fex/</id>
+    <published>2019-12-31T16:00:00.000Z</published>
+    <updated>2019-12-31T14:52:22.717Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本文题目来自&lt;a href=&quot;https://i.y.qq.com/v8/playsong.html?songid=248126620&amp;source=yqq#wechat_redirect&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;白日妄想&lt;/a&gt;的歌
+      
+    
+    </summary>
+    
+      <category term="漫想" scheme="http://silasfan.github.io/categories/%E6%BC%AB%E6%83%B3/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Install wasm in Win10</title>
+    <link href="http://silasfan.github.io/cktlcz146000akco2eo9spj3r/"/>
+    <id>http://silasfan.github.io/cktlcz146000akco2eo9spj3r/</id>
+    <published>2019-12-18T11:57:04.000Z</published>
+    <updated>2019-12-24T16:18:09.721Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;先感谢&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/WebAssembly/C_to_wasm&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Firefox的文档&lt;/a&gt;，至少没有”如果是Win10，建
+      
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://silasfan.github.io/categories/Technology/"/>
+    
+    
+      <category term="WebAssembly" scheme="http://silasfan.github.io/tags/WebAssembly/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>心上点点秋</title>
+    <link href="http://silasfan.github.io/cktlcz14i000qkco2234sj5ik/"/>
+    <id>http://silasfan.github.io/cktlcz14i000qkco2234sj5ik/</id>
+    <published>2019-06-09T16:00:10.000Z</published>
+    <updated>2019-12-16T09:11:31.281Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;转眼间，高考考完了，然后我也到了半年一度的自我总(pi)结(pan)的时间&lt;/p&gt;
+&lt;p&gt; 从感觉上，这半年大部分精力都放在Engineering上了，虽说做的项目只有两个（还都没做完），但是技术栈也堆了不少东西，包括vue全家桶、typescript、GraphQL等等，
+      
+    
+    </summary>
+    
+      <category term="漫想" scheme="http://silasfan.github.io/categories/%E6%BC%AB%E6%83%B3/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>flex的两个小坑记录</title>
+    <link href="http://silasfan.github.io/cktlcz1450009kco2b3cfhsv0/"/>
+    <id>http://silasfan.github.io/cktlcz1450009kco2b3cfhsv0/</id>
+    <published>2019-04-01T12:46:37.000Z</published>
+    <updated>2019-04-01T13:01:51.472Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在做web程序设计实验的时候碰到关于flex的两个小坑，来记录一下（顺便吐槽这课是真的有毒，拿着比jQuery还老的东西来讲，我也是服了）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;父元素高度固定时设置overflow，子元素内容溢出但是高度没跟上的问题&lt;/p&gt;
+&lt;p&gt;​    大概
+      
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://silasfan.github.io/categories/Technology/"/>
+    
+    
+      <category term="CSS" scheme="http://silasfan.github.io/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vuex学习笔记</title>
+    <link href="http://silasfan.github.io/cktlcz1410006kco2aritcet1/"/>
+    <id>http://silasfan.github.io/cktlcz1410006kco2aritcet1/</id>
+    <published>2019-03-15T15:11:26.000Z</published>
+    <updated>2019-03-16T15:09:02.549Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;嗯，有了Markdown之后我更喜欢记一些学习笔记了，当作是一个记录吧。今天来写写Vuex，当然我是边看边写的，应该是会有一些乱而且可能会有不正确的地方，见谅。（而且感觉我都是大量Copy官方文档的啊）&lt;/p&gt;
+&lt;h3 id=&quot;Vuex是干嘛的？&quot;&gt;&lt;a href=&quot;#Vu
+      
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://silasfan.github.io/categories/Technology/"/>
+    
+    
+      <category term="Vue" scheme="http://silasfan.github.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>New Blog,New Life——hexo入坑指北</title>
+    <link href="http://silasfan.github.io/cktlcz14c000hkco2pftpxxbo/"/>
+    <id>http://silasfan.github.io/cktlcz14c000hkco2pftpxxbo/</id>
+    <published>2019-03-13T16:07:17.000Z</published>
+    <updated>2019-03-14T08:28:32.553Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;虽然感觉有点坑，但是终于东搜西搜弄好了自己的 hexo（这里要吐槽一下官方文档是真的简洁），那么第一篇 post 就来记录一下建站的过程吧（好吧我 WP 上的文章会尽快迁移过来的）&lt;/p&gt;
+&lt;h4 id=&quot;为什么选择-hexo？&quot;&gt;&lt;a href=&quot;#为什么选择-hexo？
+      
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://silasfan.github.io/categories/Technology/"/>
+    
+    
+      <category term="hexo" scheme="http://silasfan.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring boot+graphql+Mongodb构建</title>
+    <link href="http://silasfan.github.io/cktlcz1400005kco2x94o4cpw/"/>
+    <id>http://silasfan.github.io/cktlcz1400005kco2x94o4cpw/</id>
+    <published>2019-03-07T14:16:54.000Z</published>
+    <updated>2019-12-18T13:08:22.430Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;寒假在准备DS final project的时候某大佬推荐了graphql，然后就拿其他项目试了下水，发现还是不错的，后端的代码量有所下降（当然前端的代码量是提升的），能让我更专注于前端一点吧&lt;/p&gt;
+&lt;p&gt;那么就在这里写一写我的简单的spring boot+graphql
+      
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://silasfan.github.io/categories/Technology/"/>
+    
+    
+      <category term="GraphQL" scheme="http://silasfan.github.io/tags/GraphQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>是适合跑步的日子啊</title>
+    <link href="http://silasfan.github.io/cktlcz14l000xkco2qvbbowna/"/>
+    <id>http://silasfan.github.io/cktlcz14l000xkco2qvbbowna/</id>
+    <published>2019-03-01T15:58:12.000Z</published>
+    <updated>2019-03-14T15:59:11.991Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;新学期开始了，步道乐走也清空了，于是今天心血来潮地去跑完了这三公里，发现跑步的时候想着一些奇奇怪怪的东西，还真有意思。这三公里，也没有那么长嘛&lt;/p&gt;
+&lt;p&gt;所以啊，感觉是不是这些东西你尝试着去做，才会知道它其实并没有什么，甚至还挺简单的呢？&lt;/p&gt;
+&lt;p&gt;感觉也没有，至少
+      
+    
+    </summary>
+    
+      <category term="漫想" scheme="http://silasfan.github.io/categories/%E6%BC%AB%E6%83%B3/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>踏着灰色的轨迹</title>
+    <link href="http://silasfan.github.io/cktlcz14u001dkco23qy61ze2/"/>
+    <id>http://silasfan.github.io/cktlcz14u001dkco23qy61ze2/</id>
+    <published>2018-12-31T16:00:13.000Z</published>
+    <updated>2019-03-14T16:01:29.487Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今年好像很多地方都如标题一样，在灰色的轨迹中前行，不管是国家，还是一直关注的游戏行业，还是所谓的“互联网寒冬”……..在这些事情中，的确发现了一些很有意思的东西（可能是我开始刷微博了吧）。&lt;/p&gt;
+&lt;p&gt;而我呢，又觉得从上一次总结自己以来，好像变化并不算太大，一部分的确是因
+      
+    
+    </summary>
+    
+      <category term="漫想" scheme="http://silasfan.github.io/categories/%E6%BC%AB%E6%83%B3/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>被物欲侵占的我</title>
+    <link href="http://silasfan.github.io/cktlcz14q0015kco2h4ykf3kj/"/>
+    <id>http://silasfan.github.io/cktlcz14q0015kco2h4ykf3kj/</id>
+    <published>2018-12-11T16:03:52.000Z</published>
+    <updated>2019-03-14T16:04:34.861Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;我想买个iPad&lt;/p&gt;
+&lt;p&gt;我想买个iPad&lt;/p&gt;
+&lt;p&gt;iPad这么贵，为什么要买iPad? 似乎我觉得有了它，我就能够高效地阅读PDF了，能够更好地学习了，能够更好地管理自己的笔记了&lt;/p&gt;
+&lt;p&gt;可是iPad这么贵，买了就要吃土了，为什么要买它？&lt;/p&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+      <category term="漫想" scheme="http://silasfan.github.io/categories/%E6%BC%AB%E6%83%B3/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Habitica-Gamify Your Life</title>
+    <link href="http://silasfan.github.io/cktlcz13u0002kco2bdo6y8gn/"/>
+    <id>http://silasfan.github.io/cktlcz13u0002kco2bdo6y8gn/</id>
+    <published>2018-12-10T16:04:58.000Z</published>
+    <updated>2019-12-18T13:06:51.586Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;偶然在网上发现了Habitica这个软件，看了一下它的介绍之后就打算简但尝试一下，没想到用了一段时间后这玩意真的帮我做了挺多事情——比如喝水，比如戒了游戏（好吧其实是因为我真的打不动游戏了，该死的3D眩晕），比如养成了用Forest的习惯，比如再也不会忘记各种各样的DDL…
+      
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://silasfan.github.io/categories/Technology/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>好像已经过完了人生的五分之一</title>
+    <link href="http://silasfan.github.io/cktlcz14k000ukco2jra693s9/"/>
+    <id>http://silasfan.github.io/cktlcz14k000ukco2jra693s9/</id>
+    <published>2018-06-09T15:59:57.000Z</published>
+    <updated>2019-03-14T16:19:06.973Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;center&gt;（一）&lt;/center&gt;
+
+&lt;p&gt;感觉本人的生日很是时候啊，每年都能借着高考回忆一波自己以前做了些什么。而今年，又是高考完的第一个年头&lt;/p&gt;
+&lt;p&gt;所以呢，看到大家写的拍的关于大一班的点点滴滴，真的很有回忆啊，万年不变的一起在课室门口吃的早餐，主旋律永远是肉包，
+      
+    
+    </summary>
+    
+      <category term="漫想" scheme="http://silasfan.github.io/categories/%E6%BC%AB%E6%83%B3/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>本次JAVA实验踩的坑</title>
+    <link href="http://silasfan.github.io/cktlcz14p0013kco2007lzyh4/"/>
+    <id>http://silasfan.github.io/cktlcz14p0013kco2007lzyh4/</id>
+    <published>2018-05-29T16:19:50.000Z</published>
+    <updated>2019-03-14T16:43:24.729Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;说实话感觉这JAVA实验都顶得过半个C++大作业了，再扩展就真的能做一个大作业……我觉得有毒&lt;/p&gt;
+&lt;p&gt;废话不多说，列一下踩过的坑吧&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;JDBC问题…..本来想简单连个数据库的，没想到JAVA还要手动装个JDBC的驱动，于是在MYSQL官网想找个
+      
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://silasfan.github.io/categories/Technology/"/>
+    
+    
+      <category term="JAVA" scheme="http://silasfan.github.io/tags/JAVA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>踏出了菜鸡的第一步</title>
+    <link href="http://silasfan.github.io/cktlcz14t001bkco2xrfphb3p/"/>
+    <id>http://silasfan.github.io/cktlcz14t001bkco2xrfphb3p/</id>
+    <published>2018-05-20T16:21:23.000Z</published>
+    <updated>2019-12-18T14:43:58.422Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;也不知道为什么我会突然兴起去做这样一个东西，可能是因为学了一点Bootstrap就膨胀了吧（并不是）&lt;/p&gt;
+&lt;p&gt;其实这个小的项目早就有构想了，只是一直抽不出空来写吧&lt;/p&gt;
+&lt;p&gt;看了一周的Bootstrap，感觉前端终于容易写了许多，就打开了我的PHPStorm…..
+      
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://silasfan.github.io/categories/Technology/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>大黄生病了</title>
+    <link href="http://silasfan.github.io/cktlcz14e000kkco2v2uq9rq0/"/>
+    <id>http://silasfan.github.io/cktlcz14e000kkco2v2uq9rq0/</id>
+    <published>2018-04-07T16:25:34.000Z</published>
+    <updated>2019-03-14T16:26:18.104Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;大黄生病了&lt;/p&gt;
+&lt;p&gt;大黄觉得它生病了。&lt;/p&gt;
+&lt;p&gt;于是大黄放下手中的工作&lt;/p&gt;
+&lt;p&gt;大黄想，它为什么会生病呢&lt;/p&gt;
+&lt;p&gt;大黄觉得，肯定是因为今天的炸酱面混入了西红柿炒鸡蛋&lt;/p&gt;
+&lt;p&gt;大黄想啊想，发现它每天所做的事情，居然&lt;/p&gt;
+&lt;p&gt;一模一样&lt;/p&gt;
+      
+    
+    </summary>
+    
+      <category term="漫想" scheme="http://silasfan.github.io/categories/%E6%BC%AB%E6%83%B3/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>停电三天，期末考及2018</title>
+    <link href="http://silasfan.github.io/cktlcz148000dkco2gd9xtlap/"/>
+    <id>http://silasfan.github.io/cktlcz148000dkco2gd9xtlap/</id>
+    <published>2017-12-30T16:26:57.000Z</published>
+    <updated>2019-03-14T16:28:18.124Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;center&gt;（一)&lt;/center&gt;
+
+&lt;p&gt;  2017年12月22日，冬至&lt;/p&gt;
+&lt;p&gt;经过一个学期的垂死挣扎，Academic writing 终于结课了，外教Jan还给我们每个人发了一条士力架作为结课礼物，瞬间感觉暖暖哒&lt;/p&gt;
+&lt;p&gt;像往常一样回到宿舍，打算放松一
+      
+    
+    </summary>
+    
+      <category term="漫想" scheme="http://silasfan.github.io/categories/%E6%BC%AB%E6%83%B3/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu16.04下搭建wordpress简单教程（LNMP环境）</title>
+    <link href="http://silasfan.github.io/cktlcz13o0000kco2o4trzqtk/"/>
+    <id>http://silasfan.github.io/cktlcz13o0000kco2o4trzqtk/</id>
+    <published>2017-11-16T16:29:39.000Z</published>
+    <updated>2019-12-18T14:45:05.713Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;先贴Reference:&lt;a href=&quot;http://blog.csdn.net/STFPHP/article/details/53492723&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://blog.csdn.net/STFPHP/art
+      
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://silasfan.github.io/categories/Technology/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>序·关于漫想</title>
+    <link href="http://silasfan.github.io/cktlcz14g000nkco2sm9n1qm1/"/>
+    <id>http://silasfan.github.io/cktlcz14g000nkco2sm9n1qm1/</id>
+    <published>2017-10-28T16:39:52.000Z</published>
+    <updated>2019-03-14T16:41:40.155Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Fetter是一名大一新生，对，2017年的&lt;/p&gt;
+&lt;p&gt;Fetter虽然读的是CS，但是他不是个死宅，相反，Fetter深受国学和意识流影响，每天都喜欢乱想&lt;/p&gt;
+&lt;p&gt;于是，便有了这个&lt;del&gt;（不定期更新的）&lt;/del&gt;记录漫想的小练笔专栏&lt;/p&gt;
+&lt;p&gt;Fett
+      
+    
+    </summary>
+    
+      <category term="漫想" scheme="http://silasfan.github.io/categories/%E6%BC%AB%E6%83%B3/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>LNMP环境下修改WordPress上传文件大小</title>
+    <link href="http://silasfan.github.io/cktlcz13y0004kco2s2co9uxc/"/>
+    <id>http://silasfan.github.io/cktlcz13y0004kco2s2co9uxc/</id>
+    <published>2017-10-28T16:37:03.000Z</published>
+    <updated>2019-03-14T16:39:11.244Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;很多第一次用WordPress的人点开媒体库之后会发现一个奇怪的限制：文件上传大小只有2M&lt;/p&gt;
+&lt;p&gt;我们来修改这个限制&lt;/p&gt;
+&lt;h4 id=&quot;1-修改HTTP上传限制：&quot;&gt;&lt;a href=&quot;#1-修改HTTP上传限制：&quot; class=&quot;headerlink&quot; tit
+      
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://silasfan.github.io/categories/Technology/"/>
+    
+    
+  </entry>
+  
+</feed>

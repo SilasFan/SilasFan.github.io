@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="三无Coding机"><title>Spring boot+graphql+Mongodb构建 | 三无Coding机</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/images/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/images/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Spring boot+graphql+Mongodb构建</h1><a id="logo" href="/.">三无Coding机</a><p class="description"></p></div><div id="nav-menu"><a href="/"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Spring boot+graphql+Mongodb构建</h1><div class="post-meta">Mar 7, 2019<span> | </span><span class="category"><a href="/categories/Technology/">Technology</a></span></div><a class="disqus-comment-count" href="/cktlcz1400005kco2x94o4cpw/#vcomment"><span class="valine-comment-count" data-xid="/cktlcz1400005kco2x94o4cpw/"></span><span> 条评论</span></a><div class="post-content"><p>寒假在准备DS final project的时候某大佬推荐了graphql，然后就拿其他项目试了下水，发现还是不错的，后端的代码量有所下降（当然前端的代码量是提升的），能让我更专注于前端一点吧</p>
+<p>那么就在这里写一写我的简单的spring boot+graphql+mongodb的项目构建和踩坑经历（我也没深入研究graphql-java，所以说错了的欢迎指正）</p>
+<p>对于还不懂GraphQL的同学来说，推荐先去熟悉它。<a href="https://graphql.cn" target="_blank" rel="noopener">GraphQL官网</a></p>
+<h4 id="一、项目的构建"><a href="#一、项目的构建" class="headerlink" title="一、项目的构建"></a>一、项目的构建</h4><p>我用的还是IDEA的maven构建，依赖只带devtools和mongodb就好了，因为项目比较简单</p>
+<p>那么在构建好之后呢，我们需要手动添加一些依赖，如下（wordpress实在没什么好的代码高亮插件，所以我只能上carbon弄好把图片撸上来了qwq）</p>
+<p><img src="/images/properties.png" alt></p>
+<h4 id="二、项目结构"><a href="#二、项目结构" class="headerlink" title="二、项目结构"></a>二、项目结构</h4><p>这里我们先定义我们的应用程序package为 <strong>com.test</strong>，由于GraphQL主要是 Type（对应实体类）、Query（查询）、Mutation（修改）三种类型和操作，我们就对应定义三个package</p>
+<ul>
+<li>com.test.types，对应操作的基本实体，同时作为Mongodb储存的数据类</li>
+<li>com.test.query：对应Query操作的类</li>
+<li>com.test.mutation：对应Mutation操作的类</li>
+</ul>
+<p>这里我们放上一张简单的schema，以对应后面的举例：</p>
+<p><img src="/images/schema.png" alt></p>
+<p>在写好schema之后，我们就需要实现对应的类了，如下：</p>
+<p><img src="/images/person1.png" alt></p>
+<p> 这里要注意类中的成员名、类型应该是要和schema中的一样的，否则会解析不出来，在构造的时候就直接被赋为null了，如构造的时候没有schema中的某个参数，会直接报错。同时构造方法最好写多两个，以应对不同的输入场景。</p>
+<p>下面是Query、Mutation中函数的实现，在GraphQL中被称为Resolver：</p>
+<p><img src="/images/query.png" alt></p>
+<p><img src="/images/mutation.png" alt></p>
+<p>这里需要注意一些事情：</p>
+<ol>
+<li>class可以随便取名，但是方法还是要对应schema中的函数名</li>
+<li>分别实现GraphQLQueryResolver和GraphQLMutationResolver接口</li>
+<li>方法的参数类的某个构造方法必须包含schema中input类型的参数（应该也是要同名的），其他参数（如果有的话）会被赋值为null</li>
+<li>当然，返回值也必须与schema中的返回类型相同</li>
+</ol>
+<p>另外，关于解决浏览器的CORS请求问题，随便百度了下，可以在Application类里添加这样一个类： </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CorsConfig</span> <span class="keyword">extends</span> <span class="title">WebMvcConfigurerAdapter</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addCorsMappings</span><span class="params">(CorsRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addMapping(<span class="string">"/**"</span>).allowedOrigins(<span class="string">"*"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在写好这些之后，我们就可以开始运行这个简单的应用啦~~查询接口默认运行在</p>
+<p>打开浏览器输入 localhost:4000/graphiql，可以打开我们的调试工具—GraphiQL，这是一个基于React的GraphQL调试工具。</p>
+<p>如果想要改变路径和端口，可以在application.properties中指定<strong>graphiql.mapping</strong>和<strong>server.port</strong>的值。</p>
+<p>一个简单的应用就这样构建好啦，关于进一步的复杂一点的东西，之后再补充吧。</p>
+</div><div class="tags"><a href="/tags/GraphQL/">GraphQL</a></div><div class="post-nav"><a class="pre" href="/cktlcz14c000hkco2pftpxxbo/">New Blog,New Life——hexo入坑指北</a><a class="next" href="/cktlcz14l000xkco2qvbbowna/">是适合跑步的日子啊</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'H4H3950lA1Fthbi035SyDPz3-gzGzoHsz',
+  appKey:'PfHYNRTMjosLxypwFjyz2PlN',
+  placeholder:'comment...',
+  avatar:'retro',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"><input type="hidden" name="sitesearch" value="http://silasfan.github.io"></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Technology/">Technology</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/漫想/">漫想</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/GraphQL/" style="font-size: 15px;">GraphQL</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/WebAssembly/" style="font-size: 15px;">WebAssembly</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/JAVA/" style="font-size: 15px;">JAVA</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/cktlcz14s0019kco28jxdf2ny/">聊聊看VUP这件事</a></li><li class="post-list-item"><a class="post-list-link" href="/cktlcz14n0010kco2g6qv8fex/">愿你我尚有余地做梦</a></li><li class="post-list-item"><a class="post-list-link" href="/cktlcz146000akco2eo9spj3r/">Install wasm in Win10</a></li><li class="post-list-item"><a class="post-list-link" href="/cktlcz14i000qkco2234sj5ik/">心上点点秋</a></li><li class="post-list-item"><a class="post-list-link" href="/cktlcz1450009kco2b3cfhsv0/">flex的两个小坑记录</a></li><li class="post-list-item"><a class="post-list-link" href="/cktlcz1410006kco2aritcet1/">Vuex学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/cktlcz14c000hkco2pftpxxbo/">New Blog,New Life——hexo入坑指北</a></li><li class="post-list-item"><a class="post-list-link" href="/cktlcz1400005kco2x94o4cpw/">Spring boot+graphql+Mongodb构建</a></li><li class="post-list-item"><a class="post-list-link" href="/cktlcz14l000xkco2qvbbowna/">是适合跑步的日子啊</a></li><li class="post-list-item"><a class="post-list-link" href="/cktlcz14u001dkco23qy61ze2/">踏着灰色的轨迹</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://www.xzclip.cn/" title="某鸡巨佬" target="_blank">某鸡巨佬</a><ul></ul><a href="https://www.huww98.cn/" title="大佬" target="_blank">大佬</a><ul></ul><a href="http://www.guohere.com/" title="某果" target="_blank">某果</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Fetter Copyright © 2021<br> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a><br><a rel="nofollow" target="_blank" href="https://beian.miit.gov.cn/">粤ICP备 17148289号</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.2/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
